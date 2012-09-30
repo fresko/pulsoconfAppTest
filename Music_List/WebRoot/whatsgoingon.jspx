@@ -13,26 +13,97 @@
     <html>
        <head>
          <title>Whats Going On ?</title>
-         <link rel="stylesheet" type="text/css" href="./xmlhttp/css/rime/rime.css"/>
+         <link rel="stylesheet" type="text/css" href="../xmlhttp/css/rime/rime.css"/>
        </head>
        <body>
        
       
         <ice:form>
            
-        <ice:panelCollapsible  expanded="true" toggleOnClick="true">
+        <ice:panelCollapsible  expanded="true" toggleOnClick="true" >
 	
 		<f:facet name="header">
 			<ice:panelGroup>
-				<ice:outputText value="Whats Going On ?"/>
+				<ice:outputText value="Play List Preload ! - Boosting that Moment"/>
 			</ice:panelGroup>
 		</f:facet>	
 		<ice:panelGrid >
 			<ice:panelGrid columns="3">
-             <ice:commandButton value="Whats Going On ? ..." id="btnStart" ></ice:commandButton>
+             <ice:commandButton image="../img/running.jpg" value="Sports" id="btnStart" action="#{musicBean.action_consult}"  ></ice:commandButton>
+             <ice:commandButton image="../img/stop.jpg" value="Sports" id="btn" action="#{musicBean.action_consult2}" ></ice:commandButton>
             </ice:panelGrid>
         </ice:panelGrid>
-        </ice:panelCollapsible>     
+        </ice:panelCollapsible>    
+         <ice:panelCollapsible  expanded="true" toggleOnClick="true">
+	
+		<f:facet name="header">
+			<ice:panelGroup>
+				<ice:outputText value="Situation"/>
+			</ice:panelGroup>
+		</f:facet>	
+		<ice:panelGrid >
+			<ice:panelGrid columns="3">
+			  <ice:dataTable scrollable="true" scrollHeight="200px" columnWidths="90px, 90px, 140px, 90px, 90px, 120px" id="idlstMusic"
+			                          value="#{musicBean.lstMusic}" var="lstMusic" >
+			                <f:facet name="header">
+                             <ice:columnGroup>
+                               <ice:headerRow>
+                                <ice:column colspan="6">
+                                <ice:outputText value="Play List Situation" />
+                                </ice:column>        
+                               </ice:headerRow>
+                               <ice:headerRow >
+                                <ice:column id="column1" style="width: 90px;">
+                                 <ice:outputText value="Name Song"/>        
+                                </ice:column>
+                                <ice:column id="column2" style="width: 90px;">
+                                 <ice:outputText value="Name Band"/>                                                                                                                
+                                </ice:column>
+                                <ice:column id="column3" style="width: 140px;">                                                                                        
+                                 <ice:outputText value="satrts"/>
+                                </ice:column>
+                                <ice:column id="column5" style="width: 90px;">
+                                 <ice:outputText value="Speed"/>
+                                </ice:column>
+                                <ice:column id="column6" style="width: 90px;">
+                                 <ice:outputText value="Play"/>
+                                </ice:column>
+                              </ice:headerRow>
+                          </ice:columnGroup>
+                       </f:facet>           
+			               <ice:column>
+			                   
+			                    <ice:outputText value="#{lstMusic.nameSong}"/> 
+			                </ice:column> 
+			                <ice:column>
+			                    
+			                   <ice:outputText value="#{lstMusic.nameBand}"/>  
+			                    
+			                </ice:column>            
+			               <ice:column>
+			                     <ice:outputText value="#{lstMusic.start}"/>
+			                    
+			                    
+			                </ice:column>
+			                <ice:column>
+			                   
+			                      <ice:outputText value="#{lstMusic.speed}"/>
+			                </ice:column>
+			                <ice:column>
+    			                 <ice:outputLink target="_blank" 
+								               value="#{lstMusic.url}">
+								    <ice:outputText id="icefacesOrgLink" value="Play"/>
+								</ice:outputLink>
+
+			                </ice:column>
+			                
+			             </ice:dataTable>	
+			             <br/>
+			            
+           
+            </ice:panelGrid>
+        </ice:panelGrid>
+        </ice:panelCollapsible>      
            
             
            <ice:messages /> 

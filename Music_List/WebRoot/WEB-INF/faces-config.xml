@@ -5,6 +5,6 @@
  <managed-bean>
   <managed-bean-name>musicBean</managed-bean-name>
   <managed-bean-class>pulsoconf.music.list.bean.MusicBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
 </faces-config>
